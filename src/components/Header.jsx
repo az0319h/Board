@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { useAuthContext } from "../context/AuthContext";
 import { FaUserCheck , FaUser  } from "react-icons/fa";
 import { FaPenNib,  } from "react-icons/fa6";
-import IsLoading from "./IsLoading";
 
 export default function Header() {
     const { user , handleLogin, handleLogout } = useAuthContext();
