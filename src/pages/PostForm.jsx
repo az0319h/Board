@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, {  useState } from "react";
 import { AiOutlineClose } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
-import { addNewPost } from "../api/firebase";
 import { useAuthContext } from "../context/AuthContext";
 import { useAddNewPost } from "../api/postMutations";
 
@@ -17,7 +16,7 @@ export default function PostForm() {
 
         const now = new Date();
         const iso = now.toISOString(); // 예: "2025-04-16T00:32:10.123Z"
-        const [datePart, timePart] = iso.split("T");
+        const [datePart] = iso.split("T");
 
         const result = await addPost({...form , uid : user.uid, datePart})
         if(result) setPostSuccess(true);
@@ -34,7 +33,7 @@ export default function PostForm() {
 
     return(
         <div className="flex justify-center items-center fixed top-0 left-0 z-50 w-full min-h-screen bg-primary-blackOpacity">
-            <div className="sticky w-full max-w-lg mx-4 bg-regular-blackModal px-4 py-4 rounded-2xl">
+            <div className="sticky w-full max-w-lg mx-4 bg-regular-blackModal px-4 py-4 rounded-2xl md:px-6 md:py-6">
                 {
                     !postSuccess ? (
                         <div className="flex flex-col gap-4 md:gap-6">
